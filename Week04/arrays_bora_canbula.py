@@ -17,7 +17,7 @@ def replace_center_with_minus_one(d, n, m):
     - ValueError: if m > n, d <= 0, n < 0, or m < 0
     """
     
-    # Check for invalid parameters
+    # Check for invalid parameters and raise ValueError
     if m > n:
         raise ValueError("The center array size 'm' should not be larger than the main array size 'n'.")
     if d <= 0:
