@@ -12,8 +12,6 @@ def replace_center_with_minus_one(d, n, m):
 
     start_index = (n - m) // 2
 
-    central_part = array[start_index:start_index + m, start_index:start_index + m]
-
     for i in range(start_index, start_index+m):
         for j in range(start_index, start_index+m):
             array[i, j] = -1
