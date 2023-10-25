@@ -1,3 +1,4 @@
+import numpy as np
 def replace_center_with_minus_one(d, n, m):
     if(m > n):
         raise ValueError("Value Error -> Parameter m can not be greater than the parameter n")
