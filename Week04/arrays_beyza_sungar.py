@@ -25,3 +25,12 @@ try:
     print(result_array)
 except ValueError as e:
     print(f"Error: {e}")
+
+
+
+
+
+
+
+
+
