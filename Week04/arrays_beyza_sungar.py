@@ -14,17 +14,19 @@ def replace_center_with_minus_one(n, d, m):
     arr1[1:n-1, 1:n-1] = -1
     return arr1
 
-try:
-    n = int(input("Enter a dimension number (n): "))
-    d = int(input("Enter the number of digits for random integers: "))
-    m = int(input("Enter the size of the central array (m): "))
-    
-    result_array = replace_center_with_minus_one(n, d, m)
-    
-    print("Modified Array:")
-    print(result_array)
-except ValueError as e:
-    print(f"Error: {e}")
+if __name__ == "__main__":
+    try:
+        n = int(input("Enter a dimension number (n): "))
+        d = int(input("Enter the number of digits for random integers: "))
+        m = int(input("Enter the size of the central array (m): "))
+        
+        result_array = replace_center_with_minus_one(n, d, m)
+        
+        print("Modified Array:")
+        print(result_array)
+    except ValueError as e:
+        print(f"Error: {e}")
+
 
 
 
