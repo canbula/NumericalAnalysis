@@ -1,24 +1,18 @@
 import numpy as np
-
 def replace_center_with_minus_one(d, n, m):
+    if(m > n):
+        raise ValueError("m can not be greater than the parameter n")
     if(d <= 0):
-        raise ValueError("d can not be less than or equal to 0")
-    elif(m > n):
-        raise ValueError("n can not be less than m")
-    elif(n < 0):
-        raise ValueError("n can not be less than 0")
-    elif(m < 0):
-        raise ValueError("m can not be less than 0")
+        raise ValueError("Parameter d can not be less then or equal 0")
+    if(n < 0):
+        raise ValueError("Parameter n can not be less then 0")
+    if(m < 0): 
+        raise ValueError("Parameter m can not be less then 0")
+    
+    np_array = np.random.randint(0, (10**d) - 1, size=(n,n))
+    center_array_start_index = (n - m) // 2
 
-    highest_rand_num = int('9' * d)
-
-    np_array = np.random.randint(0, (highest_rand_num+1), size=(n, n))
-
-    start_index = int((n - m) / 2)
-    end_index = int(start_index + m)
-
-    for i in range(start_index, end_index):
-        for j in range(start_index, end_index):
-            array[i, j] = -1
-
+    for i in range(center_array_start_index, center_array_start_index + m):
+        for j in range(center_array_start_index, center_array_start_index + m):
+            np_array[i, j] = -1
     return np_array
