@@ -2,13 +2,13 @@ import numpy as np
 
 def replace_center_with_minus_one(d, n, m):
     if(d <= 0):
-        raise Exception("ValueError: d can not be less than or equal to 0")
+        raise ValueError("d can not be less than or equal to 0")
     elif(m > n):
-        raise Exception("ValueError: n can not be less than m")
+        raise ValueError("n can not be less than m")
     elif(n < 0):
-        raise Exception("ValueError: n can not be less than 0")
+        raise ValueError("n can not be less than 0")
     elif(m < 0):
-        raise Exception("ValueError: m can not be less than 0")
+        raise ValueError("m can not be less than 0")
     else:
         highest_rand_num = int('9' * d)
 
