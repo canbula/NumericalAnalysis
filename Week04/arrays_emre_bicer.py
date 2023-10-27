@@ -17,6 +17,8 @@ def replace_center_with_minus_one(d, n, m):
     start_index = int((n - m) / 2)
     end_index = int(start_index + m)
 
-    np_array[start_index:end_index, start_index:end_index] = -1
+    for i in range(start_index, end_index):
+        for j in range(start_index, end_index):
+            array[i, j] = -1
 
     return np_array
