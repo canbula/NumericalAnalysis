@@ -1,6 +1,10 @@
 def replace_center_with_minus_one(d,n,m):
-    if d<=0 or n<=0 or m<=0 or m>n:
-        print("Invalid request")
+   if d <= 0 or n <= 0 or m <= 0 or m > n:
+        try:
+            c=[1,2,3,4,5]
+            print(c[5])
+        except IndexError:
+            print("the requiring conditions was didn't ensure.")
     else:
         a=np.array(range(0,n*n)).reshape(n,n)
         for i in range(0,n):
