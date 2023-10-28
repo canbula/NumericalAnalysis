@@ -10,18 +10,18 @@ def create_modified_array(d, n, m):
     if m < 0:
         raise ValueError(" m should be greater than 0")
 
-    an_array = np.random.randint(0, 10 ** d, size=(n, n))
+    Random_array = np.random.randint(0, 10 ** d, size=(n, n))
     print("Original Array:")
-    print(an_array)
+    print(Random_array)
 
     start_idx = (n - m) // 2
     end_idx = start_idx + m
 
-    an_array[start_idx:end_idx, start_idx:end_idx] = -1
+    Random_array[start_idx:end_idx, start_idx:end_idx] = -1
 
     print("Modified Array:")
-    print(an_array)
-    return an_array
+    print(Random_array)
+    return Random_array
 
 try:
     create_modified_array(3, 4, 2)
