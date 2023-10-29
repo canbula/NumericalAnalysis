@@ -14,7 +14,7 @@ import numpy as np
     
     """
 
-def replacement_center_with_minus_one(d, n, m):
+def replace_center_with_minus_one(d, n, m):
     if m > n or d <= 0 or n < 0 or m < 0:
         raise ValueError("Invalid input values")
     
