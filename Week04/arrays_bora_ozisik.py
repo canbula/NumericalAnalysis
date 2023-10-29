@@ -12,3 +12,5 @@ def replace_center_with_minus_one(d,n,m):
     end_index = start_index + m
 
     numpy_array[start_index:end_index, start_index:end_index] = -1
+    
+    return numpy_array
