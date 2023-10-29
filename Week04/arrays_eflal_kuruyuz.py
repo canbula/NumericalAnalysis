@@ -9,8 +9,6 @@ def replace_center_with_minus_one(n, d, m):
     
     max_value = 10**d - 1
     random_array = np.random.randint(0, max_value+1, size=(n, n))
-    max_value = 10**d - 1
-    random_array = np.random.randint(0, max_value+1, size=(n, n))
     
     center_start = (n - m) // 2
     center_end = center_start + m
