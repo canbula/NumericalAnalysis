@@ -1,4 +1,4 @@
-#Bedirhan elçin 190316054
+#Bedirhan ELÇİN 190316054
 import numpy as np
 
 def replace_center_with_minus_one(n, d, m):
@@ -8,6 +8,8 @@ def replace_center_with_minus_one(n, d, m):
         raise ValueError("d must be 2 for two-digit numbers")
     elif m < 0 or n < 0:
         raise ValueError("m or n can't be lesser than 0")
+    elif m < 3:
+        raise ValueError("m can't be lesser than 3")
 
     matrix = np.random.randint(10, 100, (n, n))
 
