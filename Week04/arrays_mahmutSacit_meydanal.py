@@ -2,7 +2,7 @@
 
 import numpy as np
 
-def create_modified_array(d, n, m):
+def replace_center_with_minus_one(d: int, n: int, m: int):
     if m > n or d <= 0 or n < 0 or m < 0:
         raise ValueError("Invalid input parameters")
 
