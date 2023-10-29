@@ -5,7 +5,7 @@ import numpy as np
 # d: number of digits
 # m: m x m matrix in the center
 
-def change_parts_of_array_with_minus_one(n, d, m):
+def replace_center_with_minus_one(n, d, m):
     if n < 0 or m > n or d <= 0 or m < 0 or m > n:
         raise ValueError("Invalid parameter(s)")
 
