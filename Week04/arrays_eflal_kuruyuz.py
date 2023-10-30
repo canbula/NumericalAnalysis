@@ -14,7 +14,6 @@ def replace_center_with_minus_one(n, d, m):
     center_end = center_start + m
     
     random_array[center_start:center_end, center_start:center_end] = -1
-    print(random_array)
     
     return random_array
 
