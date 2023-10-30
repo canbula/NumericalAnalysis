@@ -18,12 +18,13 @@ def replace_center_with_minus_one(d, n, m):
                 row.append(random.randint(10**(d-1), 10**d))
             my_matrix.append(row)
 
-        for i in range(1, m+1):
-            for j in range(1, m+1):
+        var_ = (n-m)//2
+        for i in range(var_, var_+m):
+            for j in range(var_, var_+m):
                 my_matrix[i][j] = -1
 
         for row in my_matrix:
             print(row)
 
 if __name__ == "__main__":
-    replace_center_with_minus_one(1, 5, 3)
+    replace_center_with_minus_one(1, 6, 2)
