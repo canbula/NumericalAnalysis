@@ -1,6 +1,6 @@
 import numpy as np
 
-def create_modified_array(d, n, m):
+def replace_center_with_minus_one(d, n, m):
     if m > n:
         raise ValueError(" m should be less than or equal to n")
     if d <= 0:
@@ -10,21 +10,13 @@ def create_modified_array(d, n, m):
     if m < 0:
         raise ValueError(" m should be greater than 0")
 
-    Random_array = np.random.randint(0, 10 ** d, size=(n, n))
-    print("Original Array:")
-    print(Random_array)
+    an_array = np.random.randint(0, 10 ** d, size=(n, n))
+    print(an_array)
 
     start_idx = (n - m) // 2
     end_idx = start_idx + m
 
-    Random_array[start_idx:end_idx, start_idx:end_idx] = -1
+    an_array[start_idx:end_idx, start_idx:end_idx] = -1
 
-    print("Modified Array:")
-    print(Random_array)
-    return Random_array
-
-try:
-    create_modified_array(3, 4, 2)
-    # Test with m > n
-except ValueError as e:
-    print(f" {e}")
+    print(an_array)
+    return an_array
