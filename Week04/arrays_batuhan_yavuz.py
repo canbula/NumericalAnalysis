@@ -1,3 +1,5 @@
+import numpy as np
+
 def replace_center_with_minus_one(d:int, n:int, m:int) -> np.ndarray:
     if d <= 0 or m > n or n < 0 or m < 0:
         raise ValueError("Value Error: Invalid value")
