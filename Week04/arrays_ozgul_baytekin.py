@@ -23,8 +23,5 @@ def replace_center_with_minus_one(d, n, m):
             for j in range(var_, var_+m):
                 my_matrix[i][j] = -1
 
-        for row in my_matrix:
-            print(row)
 
-if __name__ == "__main__":
-    replace_center_with_minus_one(1, 6, 2)
+ __name__ == "__main__":
