@@ -5,7 +5,7 @@ def replace_center_with_minus_one(d, n, m):
     if n <= 0 or m < 0 or d <= 0 or m >= n:
         raise ValueError("Error: Invalid values!!")
     
-    array = np.random.randint(10**d, size=(n, n))
+    array = np.random.randint(10**(d - 1), 10**d, size=(n, n))
     x = (n - m) // 2
     y = x + m
     
