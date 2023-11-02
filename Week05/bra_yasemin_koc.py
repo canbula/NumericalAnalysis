@@ -29,7 +29,6 @@ class BinaryRepresentation:
            num = float(self.number)
            #calculate here
            number_as_string = calculate_binary_conversion(num)
-           # Remove trailing zeros
            if str(num).endswith(".0"):
                number_as_string = str(num).rstrip('0')
            return number_as_string
@@ -43,7 +42,7 @@ def calculate_binary_conversion(number):
     return f"{part_of_integer}.{part_of_decimal}"
 
 def calculate_binary_conversion_for_integer_part(number):
-    arrForInteger = [np.array([])]
+    result = ""
     number_of_integer = int(str(number).split(".")[0])
     if number_of_integer == 0:
         return "0"
@@ -53,19 +52,13 @@ def calculate_binary_conversion_for_integer_part(number):
         division_of_number = int(number_of_integer / 2)
         # print(division_of_number)
         remainder = number_of_integer % 2
-        arrForInteger = np.append(arrForInteger, remainder)
+        result += str(remainder)
         # print(arrForInteger)
         if (division_of_number == 1):
             remainder = number_of_integer % 2
-            arrForInteger = np.append(arrForInteger, division_of_number)
+            result += str(division_of_number)
         number_of_integer = division_of_number
-    arrForInteger = np.flip(arrForInteger)
-    concat_value = ""
-
-    for i in range(len(arrForInteger)):
-        concat_value += str(arrForInteger[i]).split(".")[0]
-    # print(concat_value)
-    return concat_value
+    return result[::-1]
 
 
 def calculate_binary_conversion_for_decimal_part(number):
@@ -80,11 +73,6 @@ def calculate_binary_conversion_for_decimal_part(number):
        binary += str(bit)
        decimal_part -= bit
    return binary[:10]
-
-
-
-
-
 
 
 
