@@ -10,16 +10,14 @@ def replace_center_with_minus_one(d, n, m):
         raise ValueError("n cannot be negative")
     elif m < 0:
         raise ValueError("m cannot be negative")
-
-    my_matrix = []
-    for row in range(n):
-        row = []
-        for element in range(n):
-            row.append(random.randint(10**(d-1), 10**d))
-        my_matrix.append(row)
     
-    var_ = (n - m) // 2
-    for i in range(var_, var_ + m):
-        for j in range(var_, var_ + m):
-            my_matrix[i][j] = -1
+    my_matrix = np.random.randint(10**(d - 1), 10**d, size=(n, n))
+
+    val_ = (n-m) // 2
+
+
+    for i in range(val_, val_ + m):
+            for j in range(val_, val_ + m):
+                my_matrix[i, j] = -1
+
     return my_matrix
