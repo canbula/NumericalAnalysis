@@ -1,4 +1,4 @@
-import Numpy as np
+import numpy as np
 
 def replace_center_with_minus_one(n: int, m: int, d: int) -> np.ndarray:
 
