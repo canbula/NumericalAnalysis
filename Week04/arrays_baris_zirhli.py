@@ -1,3 +1,5 @@
+import Numpy as np
+
 def replace_center_with_minus_one(n: int, m: int, d: int) -> np.ndarray:
 
     if ( d <= 0 or n < 0 or m < 0 or m > n ):
