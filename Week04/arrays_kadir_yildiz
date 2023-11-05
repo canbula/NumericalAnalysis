@@ -1,0 +1,21 @@
+import numpy as np
+import random
+
+def create_array(d, n, m):
+    # n-by-n boyutunda bir numpy array oluştur
+    main_array = np.random.randint(10 ** (d - 1), 10 ** d, size=(n, n))
+    
+    # Merkezdeki m-by-m kısmı -1 ile değiştir
+    start_index = (n - m) // 2
+    end_index = start_index + m
+    main_array[start_index:end_index, start_index:end_index] = -1
+    
+    return main_array
+
+# Örnek kullanım
+d = 3  # 3 basamaklı random sayılar
+n = 5  # 5x5 boyutunda array
+m = 3  # Merkezdeki 3x3 kısmı -1 ile değiştir
+
+modified_array = create_array(d, n, m)
+print(modified_array)
