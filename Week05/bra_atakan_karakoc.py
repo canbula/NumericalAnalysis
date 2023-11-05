@@ -49,15 +49,15 @@ def calculate_binary_rep_for_dec_part(decimal_part):
 
 @app.route('/', methods=['GET'])
 def binary_representation_api():
-    num = float(request.args.get('number'))
+    num = request.args.get('number')
 
     if num is None:
         return jsonify({"error": "Please send a GET request to /?number=<number>"}), 400
 
     try:
-        if isinstance(num, float):
-            br = BinaryRepresentation(num)
-            return jsonify({'binary_representation': br.result})
+        num = float(num)
+        br = BinaryRepresentation(num)
+        return jsonify({'binary_representation': br.result})
     except ValueError:
         return jsonify({"error": "Please send a GET request to /?number=<number> with a valid number"}), 400
 
