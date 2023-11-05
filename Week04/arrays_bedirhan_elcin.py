@@ -1,22 +1,19 @@
 #Bedirhan ELÇİN 190316054
+
+import random
 import numpy as np
 
-def replace_center_with_minus_one(n, d, m):
+def replace_center_with_minus_one(d, n, m):
     if m > n:
         raise ValueError("m can't be greater than n")
-    elif d != 2:
-        raise ValueError("d must be 2 for two-digit numbers")
-    elif m < 0 or n < 0:
-        raise ValueError("m or n can't be lesser than 0")
-    elif m < 3:
-        raise ValueError("m can't be lesser than 3")
+    if d <= 0 or m <= 0 or n <= 0:
+        raise ValueError("m,n, and d can't be equal or less than 0")
+    min_value = 10 ** (d - 1)
+    max_value = 10 ** d - 1
+    my_array = np.array([[random.randint(min_value, max_value) for i in range(n)] for j in range(n)])
+    my_array[(n - m) // 2:(n - m) // 2 + m, (n - m) // 2:(n - m) // 2 + m] = -1
+    return my_array
 
-    matrix = np.random.randint(10, 100, (n, n))
 
-    if m >= 3:
 
-        center_start = (n - 3) // 2
-        center_end = center_start + 3
-        matrix[center_start:center_end, center_start:center_end] = -1
 
-    return matrix
