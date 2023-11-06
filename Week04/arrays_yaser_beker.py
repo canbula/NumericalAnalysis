@@ -16,7 +16,3 @@ def replace_center_with_minus_one(d, n, m):
     modified_array[start_index:end_index, start_index:end_index] = -1
 
     return modified_array
-
-modified_array = replace_center_with_minus_one(1, 4, 2)
-
-print(modified_array)
