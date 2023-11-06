@@ -75,6 +75,10 @@ def calculate_binary_conversion_for_decimal_part(number):
    return binary[:10]
 
 
+# a function for conver binary to decimal
+
+
+
 
 @app.route('/', methods=['GET'])
 def binary_representation_api():
