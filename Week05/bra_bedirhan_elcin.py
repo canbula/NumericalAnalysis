@@ -1,3 +1,5 @@
+import math
+
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -12,8 +14,12 @@ class BinaryRepresentation():
         integer, decimal = str(self.number).split('.')
         integer = int(integer)
         decimal = float('0.' + decimal)
-        res = self.calculate_binary_rep_for_int_part(integer) + "." + self.calculate_binary_rep_for_dec_part(decimal)
-        return res.rstrip('0')
+        decimal_part = self.calculate_binary_rep_for_dec_part(decimal)
+        if decimal_part == "0000000000":
+            decimal_part = ""
+        res = self.calculate_binary_rep_for_int_part(integer) + "." + decimal_part
+
+        return res
 
     def calculate_binary_rep_for_int_part(self, int_part):
         result = ""
@@ -28,14 +34,17 @@ class BinaryRepresentation():
             return result[::-1]
 
     def calculate_binary_rep_for_dec_part(self, decimal_part):
-        result = ""
-        while len(result) < 10:
-            decimal_part = float(decimal_part) * 2
+        decimal_part, integer_part = math.modf(decimal_part)
+        if decimal_part == 0:
+            return ''
+
+        binary = ''
+        while decimal_part > 0:
+            decimal_part *= 2
             bit = int(decimal_part)
-            if bit == 1:
-                decimal_part -= 1
-            result += str(bit)
-        return result
+            binary += str(bit)
+            decimal_part -= bit
+        return binary[:10]
 
 @app.route('/')
 def binary_representation():
