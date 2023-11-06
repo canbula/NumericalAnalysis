@@ -70,6 +70,7 @@ class NumberConverter:
             decimal_part -= bit
         return binary[:10]
 
+
 @app.route('/', methods=['GET'])
 def calculate_binary_representation():
     number = request.args.get('number')
@@ -85,6 +86,7 @@ def calculate_binary_representation():
 
     converter = NumberConverter(number)
     return jsonify({"binary_representation": f"{converter.get_binary_representation()}"}), 200
+
 
 if __name__ == '__main__':
     app.run(debug=True)
