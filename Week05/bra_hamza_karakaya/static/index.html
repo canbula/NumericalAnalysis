@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binary Representation Calculator</title>
+</head>
+<body>
+    <h1>Binary Representation Calculator</h1>
+    <p>Enter a number:</p>
+    <input type="number" id="numberInput">
+    <button onclick="calculateBinary()">Calculate</button>
+    <p>Binary Representation:</p>
+    <p id="binaryResult"></p>
+
+    <script>
+        function calculateBinary() {
+            const numberInput = document.getElementById("numberInput").value;
+            fetch(`/calculate?number=${numberInput}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("binaryResult").textContent = data.binary_representation;
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("binaryResult").textContent = "Error occurred.";
+                });
+        }
+    </script>
+</body>
+</html>
