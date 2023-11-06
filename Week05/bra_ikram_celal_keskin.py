@@ -28,6 +28,7 @@ class BinaryRepresentation:
 
     def integer_part(self, number):
         result = ""
+        #integer parts calculations
         if number == 0:
             result += str(number)
             return result
@@ -40,6 +41,7 @@ class BinaryRepresentation:
 
     def decimal_part(self, number):
         result = ""
+        #decimal parts calculations
         while number != 0:
             number = float(number) * 2
             if number >= 1:
