@@ -15,7 +15,11 @@ class HalfPrecision:
         if value != value:  # NaN case
             return '0111111111111111'
 
-         # Convert 16 bit float number to unsigned short number after conversion and discard '0b'
+        # Convert the given 'value' to a 16-bit floating-point representation using np.float16.
+        # Then, view the resulting value as a 16-bit unsigned integer using 'view('H')'.
+        # Finally, convert the integer to a binary string representation using 'bin'.
+        # Removes '0b' from the first two lines before outputting
+        # Fills empty bits with 00 to complete 16 bits
         output = bin(np.float16(value).view('H'))[2:].zfill(16) # pylint: disable=too-many-function-args
         return output
     
