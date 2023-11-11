@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Multiplication Comparison</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div>
+        <label for="digits">Digits:</label>
+        <input type="range" id="digits" name="digits" min="1" max="10" value="2" style="width: 600px;">
+        <span id="digits_value">2</span>
+        <br>
+        <label for="size">Size:</label>
+        <input type="range" id="size" name="size" min="1" max="1000" value="100" style="width: 600px;">
+        <span id="size_value">100</span>
+        <br>
+        <button onclick="fetchData()">Calculate</button>
+    </div>
+
+    <div id="plotly_chart_time"></div>
+    <div id="plotly_chart_memory"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
