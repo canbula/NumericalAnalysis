@@ -28,22 +28,47 @@ class BinaryRepresentation:
         except ValueError:
             return None
 
-app = Flask(__name__)
+files = [f for f in os.listdir(os.path.dirname(__file__)) if f.startswith("bra")]
+for f in files:
+    exec("import " + f[:-3] + " as " + f[:-3])
 
-@app.route('/binary', methods=['GET'])
-def convert_to_binary():
-    try:
-        number = request.args.get('number', type=float)
-        if number is None:
-            return jsonify({"error": "Invalid number"}), 400
+@pytest.fixture
+def clients():
+    return [eval(f[:-3]).app.test_client() for f in files]
 
-        binary_repr = BinaryRepresentation(number)
-        binary_result = binary_repr.to_binary()
+def test_binary_representation(clients):
+    for client in clients:
+        response = client.get("/binary?number=1")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "1."}
 
-        return jsonify({"binary_representation": binary_result})
+        response = client.get("/binary?number=0.5")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "0.1"}
 
-    except ValueError:
-        return jsonify({"error": "Invalid number type"}), 400
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def test_binary_representation_error(clients):
+    for client in clients:
+        response = client.get("/binary")
+        assert response.status_code == 400
+        assert response.json == {"error": "Invalid number"}
+
+        response = client.get("/binary?number=abc")
+        assert response.status_code == 400
+        assert response.json == {"error": "Invalid number type"}
+
+
+
+def test_binary_representation_api():
+    for f in files:
+        number = 13.375
+        binary_repr = eval(f[:-3]).BinaryRepresentation(number)
+        assert binary_repr.to_binary() == "1101.011"
+
+
+def test_binary_representation_api_error():
+    for f in files:
+        with pytest.raises(TypeError):
+            eval(f[:-3]).BinaryRepresentation("abc")
+
+    
