@@ -11,15 +11,16 @@ class BinaryRepresentation:
 
     def to_binary(self):
         try:
-            if abs(self.number) > 1024.0:
-                return None, "Number is too large (abs > 1024)."
+            if abs(self.number) > 1024:
+                return None, "Number is too large."
         except ValueError:
             return None, "Invalid number format."
 
         integer_part = int(self.number)
         fractional_part = self.number - integer_part
         binary_integer = self.binary_conversion_for_integer_part(integer_part)
-        binary_fractional = self.binary_conversion_for_decimal_part(fractional_part)
+        binary_fractional = self.binary_conversion_for_decimal_part(
+            fractional_part)
 
         binary_representation = binary_integer + binary_fractional
         return binary_representation, None
@@ -56,7 +57,7 @@ def binary_representation_api():
     number = request.args.get("number")
 
     if number is None:
-       return jsonify({"error": "Please send a GET request to /?number=<number>"}), 400
+        return jsonify({"error": "Please send a GET request to /?number=<number>"}), 400
 
     binary_converter = BinaryRepresentation(number)
     binary_repr, error_message = binary_converter.to_binary()
