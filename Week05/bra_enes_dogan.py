@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
-import math
 
 app = Flask(__name__)
-
 
 class BinaryRepresentation:
     def __init__(self, number):
