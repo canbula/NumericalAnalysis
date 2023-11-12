@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+
 class BinaryRepresentation:
     def __init__(self, number):
         if isinstance(number, bool):
@@ -55,7 +56,7 @@ def binary_representation_api():
     number = request.args.get("number")
 
     if number is None:
-        return jsonify({"error": "Number parameter is missing."}), 400
+       return jsonify({"error": "Please send a GET request to /?number=<number>"}), 400
 
     binary_converter = BinaryRepresentation(number)
     binary_repr, error_message = binary_converter.to_binary()
