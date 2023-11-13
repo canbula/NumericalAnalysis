@@ -9,54 +9,54 @@ for f in files:
 
 
 @pytest.fixture
-def client():
-    for f in files:
-        with eval(f[:-3]).app.test_client() as client:
-            yield client
+def clients():
+    return [eval(f[:-3]).app.test_client() for f in files]
 
 
-def test_binary_representation(client):
-    response = client.get("/?number=1")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "1."}
-    response = client.get("/?number=0.5")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "0.1"}
-    response = client.get("/?number=0.1")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "0.0001100110"}
-    response = client.get("/?number=0.2")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "0.0011001100"}
-    response = client.get("/?number=0.3")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "0.0100110011"}
-    response = client.get("/?number=0.4")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "0.0110011001"}
-    response = client.get("/?number=0.5")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "0.1"}
-    response = client.get("/?number=0.6")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "0.1001100110"}
-    response = client.get("/?number=7.5")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "111.1"}
-    response = client.get("/?number=96.3")
-    assert response.status_code == 200
-    assert response.json == {"binary_representation": "1100000.0100110011"}
+def test_binary_representation(clients):
+    for client in clients:
+        response = client.get("/?number=1")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "1."}
+        response = client.get("/?number=0.5")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "0.1"}
+        response = client.get("/?number=0.1")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "0.0001100110"}
+        response = client.get("/?number=0.2")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "0.0011001100"}
+        response = client.get("/?number=0.3")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "0.0100110011"}
+        response = client.get("/?number=0.4")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "0.0110011001"}
+        response = client.get("/?number=0.5")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "0.1"}
+        response = client.get("/?number=0.6")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "0.1001100110"}
+        response = client.get("/?number=7.5")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "111.1"}
+        response = client.get("/?number=96.3")
+        assert response.status_code == 200
+        assert response.json == {"binary_representation": "1100000.0100110011"}
 
 
-def test_binary_representation_error(client):
-    response = client.get("/")
-    assert response.status_code == 400
-    assert response.json == {"error": "Please send a GET request to /?number=<number>"}
-    response = client.get("/?number=abc")
-    assert response.status_code == 400
-    assert response.json == {
-        "error": "Please send a GET request to /?number=<number> with a valid number"
-    }
+def test_binary_representation_error(clients):
+    for client in clients:
+        response = client.get("/")
+        assert response.status_code == 400
+        assert response.json == {"error": "Please send a GET request to /?number=<number>"}
+        response = client.get("/?number=abc")
+        assert response.status_code == 400
+        assert response.json == {
+            "error": "Please send a GET request to /?number=<number> with a valid number"
+        }
 
 
 def test_binary_representation_api():
