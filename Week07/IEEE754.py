@@ -161,6 +161,29 @@ class IEEE754:
             "number": self.number / (2**self.__scale),
         }
 
+    def __repr__(self) -> str:
+        return self.__str__()
+
+
+def half(x: str) -> IEEE754:
+    return IEEE754(x, 0)
+
+
+def single(x: str) -> IEEE754:
+    return IEEE754(x, 1)
+
+
+def double(x: str) -> IEEE754:
+    return IEEE754(x, 2)
+
+
+def quadruple(x: str) -> IEEE754:
+    return IEEE754(x, 3)
+
+
+def octuple(x: str) -> IEEE754:
+    return IEEE754(x, 4)
+
 
 if __name__ == "__main__":
     # with default options (Double Precision)
@@ -172,7 +195,7 @@ if __name__ == "__main__":
     print(f"{a}")
     # you can get the hexadecimal presentation like this
     print(a.hex())
-    # or you can specify a precision and
+    # or you can specify a precision
     for p in range(5):
         a = IEEE754(x, p)
         print("x = %f | b = %s | h = %s" % (13.375, a, a.hex()))
@@ -181,3 +204,11 @@ if __name__ == "__main__":
     print(f"{a}")
     # you can get more details with json
     print(a.json())
+
+    # you can also call the precision functions
+    x = 13.375
+    print(half(x))
+    print(single(x))
+    print(double(x))
+    print(quadruple(x))
+    print(octuple(x))
