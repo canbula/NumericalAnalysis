@@ -82,11 +82,11 @@ class IEEE754:
         denormalized_range = self.calculate_denormalized_range(
             self.__exponent, self.__mantissa
         )
-        if Decimal(number) < Decimal(denormalized_range[0]):
+        if Decimal(number).copy_abs() < Decimal(denormalized_range[0]):
             raise ValueError(
                 f"Number is too small, must be larger than {denormalized_range[0]}, we lost both exponent and mantissa, please increase precision."
             )
-        if Decimal(number) < Decimal(denormalized_range[1]):
+        if Decimal(number).copy_abs() < Decimal(denormalized_range[1]):
             raise ValueError(
                 f"Number is too small, must be larger than {denormalized_range[1]}, we lost exponent, please increase precision."
             )
