@@ -19,12 +19,12 @@ class BinaryRepresentation:
             decimal_binary += str(bit)
             decimal_part -= bit
 
-        return decimal_binary
+        return decimal_binary.ljust(10, '0')
     
     def __str__(self):
         integer_binary = self.integer2binary()
         decimal_binary = self.decimal2binary()
-        return f"{integer_binary}.{decimal_binary}"
+        return {'binary_representation': f"{integer_binary}.{decimal_binary}"}
     
 app = Flask(__name__)
 
@@ -43,5 +43,3 @@ def get_binary_representaion():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    
-    
