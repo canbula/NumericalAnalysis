@@ -50,7 +50,7 @@ def convert_to_binary():
         number = float(request.args['number'])
         binary_representation = BinaryRepresentation(number)
         return jsonify({'binary_representation': str(binary_representation)})
-    except ValueError:
+    except (TypeError, ValueError):
         return jsonify({"error": "Please send a GET request to /?number=<number> with a valid number"}), 400
 
 if __name__ == '__main__':
