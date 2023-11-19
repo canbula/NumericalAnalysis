@@ -17,15 +17,23 @@ class HalfPrecision:
             else:
                 return "0111111000000000"
 
+        # Check for zero
+        if self.number == 0.0:
+            # Check for negative zero
+            if str(self.number)[0] == '-':
+                return "1000000000000000"
+            else:
+                return "0000000000000000"
+
         # Get the sign bit
         sign_bit = '0' if self.number >= 0 else '1'
 
         # Convert the number to positive for simplicity
         number = abs(self.number)
 
-        # Check for zero
-        if number == 0.0:
-            return "0000000000000000"
+        # Check for large numbers
+        if number >= 65536.0:
+            return "0111110000000000"
 
         # Calculate the exponent and adjust the number
         exponent = 0
@@ -48,6 +56,7 @@ class HalfPrecision:
 
         return binary_string
     
+
 test_cases = [
     (0.15625, "0011000100000000"),
     (13.375, "0100101010110000"),
@@ -58,7 +67,7 @@ test_cases = [
     (-0.1, "1010111001100110"),
     (0.2, "0011001001100110"),
     (-86.954, "1101010101101111"),
-    (397.4532 * 10**10, "0111110000000000"),
+    (3974532000000.0, "0111110000000000"),
     (float('inf'), "0111110000000000"),
     (float('-inf'), "1111110000000000")
 ]
@@ -67,5 +76,3 @@ for number, expected_output in test_cases:
     half_precision = HalfPrecision(number)
     binary_string = str(half_precision)
     print(f"Input: {number}, Expected: {expected_output}, Output: {binary_string}")
-
-    
