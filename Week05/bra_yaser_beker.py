@@ -2,6 +2,10 @@ from flask import Flask, request, jsonify
 
 class BinaryRepresentation:
     def __init__(self, number):
+        if isinstance(number, bool):
+            raise TypeError("Unexpected data format, anticipated input of type int or float")
+        if not isinstance(number, (int, float)):
+            raise TypeError("Unexpected data format, anticipated input of type int, float or bool")
         self.number = number
 
     def integer2binary(self):
