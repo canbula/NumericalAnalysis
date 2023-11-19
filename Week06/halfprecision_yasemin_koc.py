@@ -97,5 +97,4 @@ def get_IEEE754_format(float_input, exponential_part, mantissa):
     ieee_754_format += "{:0>{}}".format(converted_binary_bias, 5)
     ieee_754_format += "{:0<10}".format(mantissa[:10])
     return ieee_754_format
-# Example usage:
-print(HalfPrecision(numpy.inf))
+
