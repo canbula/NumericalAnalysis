@@ -41,16 +41,17 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def convert_to_binary():
+    number = request.args.get('number')
+
+    if number is None:
+        return jsonify({"error": "Please send a GET request to /?number=<number>"}), 400
+
     try:
         number = float(request.args['number'])
         binary_representation = BinaryRepresentation(number)
         return jsonify({'binary_representation': str(binary_representation)})
     except ValueError:
-        return jsonify({'error': 'Please send a GET request to /?number=<number> with a valid number'})
-    except KeyError:
-        return jsonify({'error': 'Please send a GET request to /?number=<number>'})
-    except TypeError:
-        return jsonify({'error': 'Please send a GET request to /?number=<number> with a valid number'})
+        return jsonify({"error": "Please send a GET request to /?number=<number> with a valid number"}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
