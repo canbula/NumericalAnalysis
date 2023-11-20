@@ -55,24 +55,3 @@ class HalfPrecision:
         binary_string = sign_bit + exponent_bits + mantissa
 
         return binary_string
-    
-
-test_cases = [
-    (0.15625, "0011000100000000"),
-    (13.375, "0100101010110000"),
-    (-13.375, "1100101010110000"),
-    (0.0, "0000000000000000"),
-    (-0.0, "1000000000000000"),
-    (0.1, "0010111001100110"),
-    (-0.1, "1010111001100110"),
-    (0.2, "0011001001100110"),
-    (-86.954, "1101010101101111"),
-    (3974532000000.0, "0111110000000000"),
-    (float('inf'), "0111110000000000"),
-    (float('-inf'), "1111110000000000")
-]
-
-for number, expected_output in test_cases:
-    half_precision = HalfPrecision(number)
-    binary_string = str(half_precision)
-    print(f"Input: {number}, Expected: {expected_output}, Output: {binary_string}")
