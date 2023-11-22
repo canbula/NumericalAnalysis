@@ -22,7 +22,7 @@ class BinaryRepresentation:
             raise TypeError("Invalid input type, expected int or float")
         decimal_part = self.number - int(self.number)
         binary_str = ""
-        for _ in range(precision):
+        for _ in range(10):
             decimal_part *= 2
             binary_str += str(int(decimal_part))
             decimal_part -= int(decimal_part)
