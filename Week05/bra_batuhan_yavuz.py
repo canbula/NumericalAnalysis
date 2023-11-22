@@ -4,22 +4,33 @@ app = Flask(__name__)
 
 class BinaryRepresentation:
     def __init__(self, number):
+        if not isinstance(number, (int, float)):
+            raise TypeError("Invalid input type, expected int, float, or bool")
+        if isinstance(number, bool):
+            raise TypeError("Invalid input type, expected int or float")
         self.number = number
 
+
     def integer2binary(self):
+        if not isinstance(self.number, (int, float)):
+            raise TypeError("Invalid input type, expected int or float")
         integer_part = int(self.number)
         return bin(integer_part)[2:]
 
     def decimal2binary(self):
+        if not isinstance(self.number, (int, float)):
+            raise TypeError("Invalid input type, expected int or float")
         decimal_part = self.number - int(self.number)
         binary_str = ""
-        for _ in range(10):  
+        for _ in range(precision):
             decimal_part *= 2
             binary_str += str(int(decimal_part))
             decimal_part -= int(decimal_part)
         return binary_str
 
     def __str__(self):
+        if not isinstance(self.number, (int, float)):
+            raise TypeError("Invalid input type, expected int or float")
         return f"{self.integer2binary()}.{self.decimal2binary()}"
 
 @app.route('/binary_representation', methods=['GET'])
