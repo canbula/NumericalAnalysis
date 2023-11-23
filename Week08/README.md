@@ -1,7 +1,7 @@
 # Week08: Week Before Midterm
 
 ## Subjects Covered:
-- [Python Iterables and Sequences] (#-iterables-and-sequences)
+- [Python Iterables and Sequences] (#python-iterables-and-sequences)
 - [Traditional Python Lists vs NumPy Arrays] (#list-vs-array)
 - [Binary Conversion of Floating Point Numbers] (#binary-conversion)
 - [IEEE 754 Representation of Floating Point Numbers] (#ieee-754)
