@@ -28,6 +28,6 @@
 - Errors and Limitations of IEEE 754 Representation
 
 ## Links:
-- <a href="https://numericalculator.canbula.com/" target="_blank">NUMERICALCULATOR</a>(a web-based numerical analysis calculator for binary conversion and IEEE 754 representation)
+- <a href="https://numericalculator.canbula.com/" target="_blank">NUMERICALCULATOR</a> (a web-based numerical analysis calculator for binary conversion and IEEE 754 representation)
 - <a href="https://www.github.com/canbula/NumericalAnalysis" target="_blank">GitHub Repository for 2023</a> (see the codes for this year)
 - <a href="https://github.com/canbula/NumericalAnalysis/tree/2022" target="_blank">GitHub Repository for 2022</a> (see the exams of last year)
