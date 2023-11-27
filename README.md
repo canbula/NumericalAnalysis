@@ -12,6 +12,11 @@ In the end, we will use these skills to solve some nonlinear equations.
 In all applications, we will use Python to solve the problems. 
 You can find some supplementary videos for this course on my YouTube channel.
 
+# Wiki
+Some concepts are emphasized in Wiki pages, you can find them in the following link.
+
+[Wiki Pages](https://github.com/canbula/NumericalAnalysis/wiki)
+
 # Weekly Content
 You can find the codes that written in the laboratory in the folder WeekXX.
 
