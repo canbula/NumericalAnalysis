@@ -1,0 +1,66 @@
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+class BinaryRepresentation():
+    def __init__(self, num):
+        if not isinstance(num, float):
+            raise TypeError("Enter a floating point number.")
+        if isinstance(num, bool):
+            raise TypeError("Number must not be a boolean.")
+        self.num = num
+        self.result = self.__str__()
+
+    def __str__(self):
+        int_section = int(self.num)
+        decimal = self.num - int_section
+        self.result = binary_rep_res(int_section, decimal)
+        return self.result
+
+
+def binary_rep_res(int_section, decimal):
+    return f"{binary_for_int(int_section)}.{binary_for_dec(decimal)}"
+
+def binary_for_int(int_section):
+    result = ""
+    if int_section == 0:
+        result += str(int_section)
+        return result
+    else:
+        while int_part > 0:
+            remainder = int_section % 2
+            result += str(remainder)
+            int_section = int_section // 2
+        return result[::-1]
+
+def binary_for_dec(decimal):
+    result = ""
+    while decimal != 0:
+        decimal = float(decimal) * 2
+        if decimal >= 1:
+            result += '1'
+            decimal -= 1
+        else:
+            result += '0'
+        if len(result) >= 10:
+            break
+    return result
+
+
+@app.route('/', methods=['GET'])
+def binary_representation_api():
+    num = request.args.get('number')
+
+    if num is None:
+        return jsonify({"error": "Please send a GET request to /?number=<number>"}), 400
+
+    try:
+        num = float(num)
+        br = BinaryRepresentation(num)
+        return jsonify({'binary_representation': br.result})
+    except ValueError:
+        return jsonify({"error": "Please send a GET request to /?number=<number> with a valid number"}), 400
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
