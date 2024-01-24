@@ -3,6 +3,11 @@ Repository for Numerical Analysis course given by Assoc. Prof. Dr. Bora Canbula 
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![GitHub stars](https://badgen.net/github/stars/canbula/NumericalAnalysis/)](https://GitHub.com/canbula/NumericalAnalysis/stargazers/) [![GitHub forks](https://badgen.net/github/forks/canbula/NumericalAnalysis/)](https://GitHub.com/canbula/NumericalAnalysis/network/) [![GitHub contributors](https://img.shields.io/github/contributors/canbula/NumericalAnalysis.svg)](https://GitHub.com/canbula/NumericalAnalysis/graphs/contributors/) [![GitHub total-pull-requests](https://badgen.net/github/prs/canbula/NumericalAnalysis)](https://GitHub.com/canbula/NumericalAnalysis/pull/) [![GitHub pull-requests merged](https://badgen.net/github/merged-prs/canbula/NumericalAnalysis)](https://github.com/canbula/NumericalAnalysis/pulls?q=is%3Amerged)
 
+# Web Application for Students
+We built a web application in this course as a side project to help student to understand the concepts and methods better.
+
+[NUMERICALCULATOR](https://numericalculator.canbula.com)
+
 # Course Information
 In this course, students will learn the basic concepts of numerical analysis. 
 In the first part of the course, students will learn the way that computers represent numbers and how to use them in calculations. 
