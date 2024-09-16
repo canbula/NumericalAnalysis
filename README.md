@@ -1,4 +1,4 @@
-# Numerical Analysis 2023
+# Numerical Analysis 2024
 Repository for Numerical Analysis course given by Assoc. Prof. Dr. Bora Canbula at Computer Engineering Department of Manisa Celal Bayar University.
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/) [![GitHub stars](https://badgen.net/github/stars/canbula/NumericalAnalysis/)](https://GitHub.com/canbula/NumericalAnalysis/stargazers/) [![GitHub forks](https://badgen.net/github/forks/canbula/NumericalAnalysis/)](https://GitHub.com/canbula/NumericalAnalysis/network/) [![GitHub contributors](https://img.shields.io/github/contributors/canbula/NumericalAnalysis.svg)](https://GitHub.com/canbula/NumericalAnalysis/graphs/contributors/) [![GitHub total-pull-requests](https://badgen.net/github/prs/canbula/NumericalAnalysis)](https://GitHub.com/canbula/NumericalAnalysis/pull/) [![GitHub pull-requests merged](https://badgen.net/github/merged-prs/canbula/NumericalAnalysis)](https://github.com/canbula/NumericalAnalysis/pulls?q=is%3Amerged)
@@ -32,12 +32,6 @@ At the end of the every chapter, you will also find a Problem Set.
 # Homeworks
 Students are requested to submit their homeworks to folders WeekXX, as defined in the LectureNotes.pdf. 
 The codes will be subject to certain GitHub action workflows to be tested automatically.
-
-NumPy Arrays Slicing<br>[![Week04 Homework](https://github.com/canbula/NumericalAnalysis/actions/workflows/python-app-week-04.yml/badge.svg)](https://github.com/canbula/NumericalAnalysis/actions/workflows/python-app-week-04.yml)
-
-Binary Representation API<br>[![Week05 Homework](https://github.com/canbula/NumericalAnalysis/actions/workflows/python-app-week-05.yml/badge.svg)](https://github.com/canbula/NumericalAnalysis/actions/workflows/python-app-week-05.yml)
-
-Half Precision IEEE 754 Representation<br>[![Week06 Homework](https://github.com/canbula/NumericalAnalysis/actions/workflows/python-app-week-06.yml/badge.svg)](https://github.com/canbula/NumericalAnalysis/actions/workflows/python-app-week-06.yml)
 
 # Codes and Videos from Previous Years
 You can change the branch to see the codes from previous years. Also there is a YouTube playlist, 
