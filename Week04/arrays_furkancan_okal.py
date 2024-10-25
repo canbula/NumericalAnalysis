@@ -30,6 +30,6 @@ def replace_center_with_minus_one(d, n, m):
     for i in range(len(arr)):
         for j in range(len(arr[i])):
             if (i < start_index or i > end_index) or (j < start_index or j > end_index):
-                arr[i][j] = random.randint(0,d + 1)
+                arr[i][j] = random.randint(10 ** (d - 1),10 ** d - 1)
     return arr
 
