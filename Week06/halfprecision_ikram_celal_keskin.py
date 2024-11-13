@@ -1,5 +1,4 @@
 import numpy as np
-# import os
 
 class HalfPrecision:
     """
@@ -21,7 +20,7 @@ class HalfPrecision:
         if isinstance(number,(str,bool,list,tuple,set)):
             raise TypeError(f"Invalid input {type(number)}")
         try:
-            self.__number = float(number)
+            self.__number = number / 1
         except Exception as e:
             raise TypeError("Input {} cannot be converted to a float".format(e.args[0]))
             
@@ -44,6 +43,8 @@ class HalfPrecision:
             sign = True
             number = -number
         
+        number = self.__is_calculatable_mantissa(number,mantissa_length,exponent_length)
+
         if np.isinf(number):
             return f"{int(sign)}{'1'*exponent_length}{'0'*mantissa_length}"
         
@@ -92,11 +93,22 @@ class HalfPrecision:
         if len(mantissa)< mantissa_length:
             mantissa += '0' * (mantissa_length - len(mantissa))
         elif len(mantissa)> mantissa_length:
-            mantissa = mantissa[:mantissa_length-1] + '1'
-          
+            mantissa = mantissa[:mantissa_length] #Truncating
+            # mantissa = mantissa[:mantissa_length-1] + '1' #Rounding
 
         return mantissa,power
+    
+    def __is_calculatable_mantissa(self, number: float, mantissa_length: int, exponent_length: int) -> float:
+        """
+        This function checks if the input number is calculatable in custom precision format.
+        """
+        max_number = 2**(2**(exponent_length-1)-1) * (2-2**(-mantissa_length))
 
+        if number > max_number:
+            return np.inf
+            
+        return number
+        
     def __integer_to_binary(self,number:int)->str:
         
         result = ""
@@ -130,10 +142,6 @@ class HalfPrecision:
         
         return binary
 
-
-
-# if __name__=="__main__":
-#     os.system("pytest -v test_halfprecision.py")
 
 
 
