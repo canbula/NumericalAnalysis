@@ -40,3 +40,6 @@ which includes the supplementary videos for the course as given in 2021 and 2022
 [Full Course from 2021](https://youtube.com/playlist?list=PL30NBs02RsiVzlo8XXB-ox8EiJ09CDjJn&si=bsLRpWLx0qKhxFxM)
 
 [Live Sessions from 2022](https://youtube.com/playlist?list=PL30NBs02RsiVfy95E4wZV0qQk2BvOpqYv&si=s5AqijK7Bspy5FNp)
+
+# How to Create a Pull Request
+https://github.com/canbula/Statistics/assets/5307181/1995892c-6e7b-40ce-be7f-8f16f1aee0e0
