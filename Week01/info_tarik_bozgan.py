@@ -1,2 +1,4 @@
-student_id = "230315088"
-full_name = "Tarık Bozğan"
+x = 0
+while(True):
+   a = id(x)
+   print(a)
