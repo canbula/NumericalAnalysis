@@ -8,10 +8,13 @@ def remove_duplicates(list):
     return result
 
 
-def count_occurrences(list):
+def list_counts(list):
     counts = {}
     for item in list:
-        counts[item] = counts.get(item, 0) + 1
+        if item in counts:
+            counts[item] = counts[item] + 1
+        else:
+            counts[item] = 1
     return counts
 
 
