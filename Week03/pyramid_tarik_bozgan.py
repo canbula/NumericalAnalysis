@@ -4,5 +4,3 @@ def calculate_pyramid_height(number_of_blocks):
         height += 1
         number_of_blocks -= height
     return height - 1
-
-print(calculate_pyramid_height(10))
