@@ -1,0 +1,22 @@
+import numpy as np
+
+def replaceCenterWithMinusOne(d, n, m):
+    if m > n:
+        raise ValueError("m can not be bigger than n!")
+    if d <= 0:
+        raise ValueError("d can not be 0 or negative")
+    if n < 0:
+        raise ValueError("n can not be negative")
+    if m < 0:
+        raise ValueError("m can not be negative")
+    min_val = 0
+    max_val = 10**d
+    
+    array = np.random.randint(min_val, max_val, size=(n, n))
+
+    baslangic = (n - m) // 2
+    bitis = baslangic + m
+
+    array[baslangic:bitis, baslangic:bitis] = -1
+
+    return array
